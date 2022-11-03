@@ -1,6 +1,7 @@
 ﻿using ActivityMasterCore.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ActivityMasterCore.ViewModels;
 
 namespace ActivityMasterCore.Data
 {
@@ -12,5 +13,6 @@ namespace ActivityMasterCore.Data
         }
         public DbSet<ProjectType> ProjectType { get; set; }
         public DbSet<ActivityType> ActivityType { get; set; }
+        public DbSet<ActivityMasterCore.ViewModels.RoleStore> RoleStore { get; set; }
     }
 }
