@@ -128,6 +128,7 @@ namespace ActivityMasterCore.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    _userManager.AddToRoleAsync(user, "ADMIN").Wait();
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);

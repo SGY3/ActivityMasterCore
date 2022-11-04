@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ActivityMasterCore.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "ADMIN")]
     public class ActivityTypeController : Controller
     {
         private readonly DataContext _context;
@@ -24,7 +24,7 @@ namespace ActivityMasterCore.Controllers
         // GET: ActivityType
         public async Task<IActionResult> Index()
         {
-              return View(await _context.ActivityType.ToListAsync());
+            return View(await _context.ActivityType.ToListAsync());
         }
 
         // GET: ActivityType/Details/5
@@ -150,14 +150,14 @@ namespace ActivityMasterCore.Controllers
             {
                 _context.ActivityType.Remove(activityType);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ActivityTypeExists(int id)
         {
-          return _context.ActivityType.Any(e => e.Id == id);
+            return _context.ActivityType.Any(e => e.Id == id);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ActivityMasterCore.Data;
 using ActivityMasterCore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ActivityMasterCore.Controllers
@@ -16,6 +17,8 @@ namespace ActivityMasterCore.Controllers
         /// Get Section of Project Type
         /// </summary>
         /// <returns></returns>
+        /// 
+        [Authorize(Roles = "User")]
         [HttpGet]
         public IActionResult Index()
         {
